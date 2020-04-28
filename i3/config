@@ -50,8 +50,6 @@ exec_always --no-startup-id xrandr --output eDP1 --auto
 # control brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5-
-#bindsym XF86MonBrightnessUp exec sh ~/.config/i3/scripts/backlight.sh -inc 5
-#bindsym XF86MonBrightnessDown exec sh ~/.config/i3/scripts/backlight.sh -dec 5
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -186,10 +184,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Take screenshot and save it to ~/Images/Screenshots
-bindsym --release Shift+Print exec --no-startup-id sh ~/.config/i3/scripts/print_to_save.sh.sh
+bindsym --release Shift+Print exec --no-startup-id sh ~/.config/i3/scripts/print_to_save.sh
 
 # Take screenshot and copy it to clipboard
-bindsym --release Print exec --no-startup-id sh ~/.config/i3/scripts/print_to_clipboard.sh
+bindsym --release Print exec --no-startup-id maim -s | xclip -sel clipboard -t image/png
 
 # Set shut down, restart and locking features
 bindsym $mod+o mode "$mode_system"

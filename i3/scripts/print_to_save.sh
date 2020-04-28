@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-IMAGE=~/Images/Screenshots/screenshot-%Y-%m-%d-%H_%M_%S.png
-SCREENSHOT="scrot -s $IMAGE"
+FOLDER="$HOME/Pictures/Screenshots"
+IMG="$FOLDER/$(date '+%Y-%m-%d %H:%M:%S').png"
 
-$SCREENSHOT
+mkdir -p "$FOLDER" \
+  && /usr/bin/maim -s "$IMG" \
+  && xclip -selection clipboard -t image/png < "$IMG"
