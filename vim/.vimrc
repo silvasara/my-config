@@ -1,11 +1,18 @@
-set nu
+"general
+set number
 set showmode
 set showcmd
-set ts=4
+set background=dark
+set ruler
 syntax on
-set hls
-set ai
-set ignorecase
-set smartcase
-set incsearch
 
+"search
+set incsearch
+set smartcase
+set ignorecase
+
+"identation
+set tabstop=4
+set autoindent
+set shiftwidth=4
+set softtabstop=4
