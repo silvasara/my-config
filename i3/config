@@ -215,8 +215,11 @@ exec --no-startup-id ~/.config/i3/scripts/i3-battery-popup -L 20
 bar {
         font pango:DejaVu Sans Mono, FontAwesome 8
         status_command ~/.local/bin/bumblebee-status \
-            -m memory pasink battery date time \
-            -p time.format="%H:%M" date.format="%a, %b %d" \
+            -m nic memory pasink battery date time \
+            -p nic.exclude="lo,virbr,docker,vboxnet,veth,br,enp" \
+            nic.format='{intf} {state}' \
+            memory.format='{percent:05.02f}%' \
+            time.format="%H:%M" date.format="%a, %b %d" \
             -t gruvbox-powerline
-		position top
+        position top
 }
